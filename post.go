@@ -1,6 +1,11 @@
 package main
 
-import "encoding/xml"
+import (
+	"encoding/xml"
+	"fmt"
+	"io/ioutil"
+	"os"
+)
 
 type Post struct {
 	XMLName xml.Name `xml:"post"`
@@ -16,5 +21,19 @@ type Author struct {
 }
 
 func main() {
-	xmlFile, err := 
+	xmlFile, err := os.Open("post.xml")
+	if err != nil{
+		panic(err)
+	}
+	defer xmlFile.Close()
+
+	xmlDate, err := ioutil.ReadAll(xmlFile)
+	if err != nil {
+		fmt.Println("Error reading XML data:", err)
+		return
+	}
+
+	post := new(Post)
+	xml.Unmarshal(xmlDate, post)
+	fmt
 }
