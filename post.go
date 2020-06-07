@@ -61,7 +61,7 @@ func main() {
 		case xml.StartElement:
 			if se.Name.Local == "comment" {
 				var comment Comment
-				decorder.DecodeElement($comment, )
+				decorder.DecodeElement(&comment, &se)
 			}
 		}
 	}
