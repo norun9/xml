@@ -13,6 +13,13 @@ type Post struct {
 	Content string  `xml:"content"`
 	Author string `xml:"author"`
 	Xml string `xml:",innerxml"`
+	Comments []Comment `xml:"comments>comment"`
+}
+
+type Comment struct {
+	Id string `xml:"is,attr"`
+	Content string `xml:"content"`
+	Author Author `xml:"author"`
 }
 
 type Author struct {
