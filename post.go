@@ -4,7 +4,6 @@ import (
 	"encoding/xml"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"os"
 )
 
@@ -46,7 +45,7 @@ func main() {
 	//xml.Unmarshal(xmlDate, post)
 	//fmt.Println(post)
 
-	decorder := xml.NewDecoder(xmlFile)
+	decoder := xml.NewDecoder(xmlFile)
 	for {
 		t, err := decoder.Token()
 		if err == io.EOF {
