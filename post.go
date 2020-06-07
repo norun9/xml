@@ -8,28 +8,28 @@ import (
 )
 
 type Post struct {
-	XMLName xml.Name `xml:"post"`
-	Id string `xml:"id,attr"`
-	Content string  `xml:"content"`
-	Author string `xml:"author"`
-	Xml string `xml:",innerxml"`
+	XMLName  xml.Name  `xml:"post"`
+	Id       string    `xml:"id,attr"`
+	Content  string    `xml:"content"`
+	Author   string    `xml:"author"`
+	Xml      string    `xml:",innerxml"`
 	Comments []Comment `xml:"comments>comment"`
 }
 
 type Comment struct {
-	Id string `xml:"is,attr"`
+	Id      string `xml:"is,attr"`
 	Content string `xml:"content"`
-	Author Author `xml:"author"`
+	Author  Author `xml:"author"`
 }
 
 type Author struct {
-	Id string `xml:"id",attr`
+	Id   string `xml:"id",attr`
 	Name string `xml:",chardata"`
 }
 
 func main() {
 	xmlFile, err := os.Open("post.xml")
-	if err != nil{
+	if err != nil {
 		fmt.Println("Error opening XML file:", err)
 		return
 	}
@@ -51,12 +51,12 @@ func main() {
 		if err == io.EOF {
 			break
 		}
-		if err != nil{
+		if err != nil {
 			fmt.Println("Error decoding XML into tokens:", err)
 			return
 		}
 
-		switch se := t.(type){
+		switch se := t.(type) {
 		case xml.StartElement:
 			if se.Name.Local == "comment" {
 				var comment Comment
