@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/xml"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"os"
 )
@@ -45,5 +46,23 @@ func main() {
 	//xml.Unmarshal(xmlDate, post)
 	//fmt.Println(post)
 
-	
+	decorder := xml.NewDecoder(xmlFile)
+	for {
+		t, err := decoder.Token()
+		if err == io.EOF {
+			break
+		}
+		if err != nil{
+			fmt.Println("Error decoding XML into tokens:", err)
+			return
+		}
+
+		switch se := t.(type){
+		case xml.StartElement:
+			if se.Name.Local == "comment" {
+				var comment Comment
+				decorder.DecodeElement($comment, )
+			}
+		}
+	}
 }
