@@ -17,7 +17,7 @@ type Post struct {
 }
 
 type Comment struct {
-	Id      string `xml:"is,attr"`
+	Id      string `xml:"id,attr"`
 	Content string `xml:"content"`
 	Author  Author `xml:"author"`
 }
