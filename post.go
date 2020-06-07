@@ -30,17 +30,20 @@ type Author struct {
 func main() {
 	xmlFile, err := os.Open("post.xml")
 	if err != nil{
-		panic(err)
+		fmt.Println("Error opening XML file:", err)
+		return
 	}
 	defer xmlFile.Close()
 
-	xmlDate, err := ioutil.ReadAll(xmlFile)
-	if err != nil {
-		fmt.Println("Error reading XML data:", err)
-		return
-	}
+	//xmlDate, err := ioutil.ReadAll(xmlFile)
+	//if err != nil {
+	//	fmt.Println("Error reading XML data:", err)
+	//	return
+	//}
+	//
+	//post := new(Post)
+	//xml.Unmarshal(xmlDate, post)
+	//fmt.Println(post)
 
-	post := new(Post)
-	xml.Unmarshal(xmlDate, post)
-	fmt.Println(post)
+	
 }
