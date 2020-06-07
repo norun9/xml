@@ -35,5 +35,5 @@ func main() {
 
 	post := new(Post)
 	xml.Unmarshal(xmlDate, post)
-	fmt
+	fmt.Println(post)
 }
