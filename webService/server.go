@@ -1,6 +1,11 @@
 package main
 
-import "net/http"
+import (
+	"encoding/json"
+	"net/http"
+	"path"
+	"strconv"
+)
 
 type Post struct {
 	Id int `json:"id"`
@@ -33,4 +38,22 @@ func handleRequest(w http.ResponseWriter, r *http.Request){
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+}
+
+func handleGet(w http.ResponseWriter, r *http.Request) (err error) {
+	id, err := strconv.Atoi(path.Base(r.URL.Path))
+	if err != nil {
+		return
+	}
+	post, err := retrieve(id)
+	if err != nil {
+		return
+	}
+	output, err := json.MarshalIndent(&post, "", "\t\t")
+	if err != nil{
+		return
+	}
+	w.Header().Set("Content-Type", "application/json")
+	w.Write(output)
+	return
 }
