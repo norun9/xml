@@ -29,7 +29,8 @@ func handleRequest(w http.ResponseWriter, r *http.Request){
 		err = handleDelete(w, r)
 	}
 
-	if erttp.Errorr != nil {
-		h
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
 	}
 }
