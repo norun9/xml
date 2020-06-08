@@ -1,5 +1,10 @@
 package main
 
+import (
+	"encoding/json"
+	"os"
+)
+
 type Post struct {
 	Id int `json:"id"`
 	Content string `json:"content"`
@@ -38,6 +43,16 @@ func main() {
 				Author: "Betty",
 			},
 		},
+	}
+
+	jsonFile, err := os.Create("post.json")
+	if err != nil {
+		panic(err)
+	}
+	encoder := json.NewEncoder(jsonFile)
+	err = encoder.Encode(&post)
+	if err != nil {
+		panic(err)
 	}
 }
 
