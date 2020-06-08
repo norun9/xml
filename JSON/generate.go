@@ -35,7 +35,7 @@ func main() {
 			Comment{
 				Id: 3,
 				Content: "How are you today?",
-				Author: "Adam"
+				Author: "Adam",
 			},
 			Comment{
 				Id: 4,
@@ -55,4 +55,3 @@ func main() {
 		panic(err)
 	}
 }
-
