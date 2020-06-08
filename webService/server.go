@@ -103,12 +103,9 @@ func handleDelete(w http.ResponseWriter, r *http.Request) (err error){
 		return
 	}
 	err = post.delete()
-	if err != nil{
+	if err != nil {
 		return
 	}
 	w.WriteHeader(200)
 	return
-
-
-
 }
