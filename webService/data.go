@@ -33,11 +33,11 @@ func (post *Post) create() (err error) {
 }
 
 func (post *Post) update() (err error) {
-	_, err := Db.Exec("update posts set content = $2, author = $3 where id = $1", post.Id, post.Content, post.Author)
+	_, err = Db.Exec("update posts set content = $2, author = $3 where id = $1", post.Id, post.Content, post.Author)
 	return
 }
 
 func (post *Post) delete() (err error) {
-	_, err := Db.Exec("delete from posts where id = $1", post.Id)
+	_, err = Db.Exec("delete from posts where id = $1", post.Id)
 	return
 }
