@@ -1,12 +1,23 @@
-<h1>Editing {{.Title}}</h1>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Golang Template Test</title>
+    </head>
+    <body>
 
-<form action="/save/{{.Title}}" method="POST">
-    <div>
-        <textarea name="body" cols="80" rows="20">{{printf "%s" .Body }}</textarea>
-    </div>
-    <div>
-        <input type="submit" value="Save">
-    </div>
-</form>
+        <h1>Editing {{.Title}}</h1>
 
-<div>{{printf "%s" .Body}}</div>
+        <form action="/save/{{.Title}}" method="POST">
+            <div>
+                <textarea name="body" cols="80" rows="20">{{printf "%s" .Body }}</textarea>
+            </div>
+            <div>
+                <input type="submit" value="Save">
+            </div>
+        </form>
+
+        <div>{{printf "%s" .Body}}</div>
+
+    </body>
+</html>
