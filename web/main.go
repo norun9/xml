@@ -1,7 +1,6 @@
 package main
 
 import (
-	//"fmt"
 	"html/template"
 	"io/ioutil"
 	"net/http"
@@ -27,7 +26,6 @@ func loadPage(title string) (*Page , error) {
 }
 
 func viewHandler(w http.ResponseWriter, r *http.Request){
-	//w.Header().Set("Content-Type", "application/json")
 	title := r.URL.Path[len("/view/"):]
 	p, err := loadPage(title)
 	if err != nil {
@@ -37,7 +35,6 @@ func viewHandler(w http.ResponseWriter, r *http.Request){
 }
 
 func editHandler(w http.ResponseWriter, r *http.Request){
-	//w.Header().Set("Content-Type", "application/json")
 	title := r.URL.Path[len("/edit/"):]
 	p, err := loadPage(title)
 	if err != nil{
