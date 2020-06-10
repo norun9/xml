@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"encoding/gob"
+	"fmt"
 	"io/ioutil"
 )
 
@@ -20,7 +21,7 @@ func store(data interface{}, filename string) {
 		panic(err)
 	}
 
-	err = ioutil.WriteFile(filename, buffer.Bytes(),. 0600)
+	err = ioutil.WriteFile(filename, buffer.Bytes(), 0600)
 	if err != nil {
 		panic(err)
 	}
@@ -40,5 +41,9 @@ func load(data interface{}, filename string) {
 }
 
 func main() {
-
+	post := Post{1, "Hello World", "Sau Sheong"}
+	store(post, "post1")
+	var postRead Post
+	load(&postRead, "post1")
+	fmt.Println(postRead)
 }
