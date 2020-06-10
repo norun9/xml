@@ -1,15 +1,5 @@
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Golang Template Test</title>
-    </head>
-    <body>
+<h1>{{.Title}}</h1>
 
-        <h1>{{.Title}}</h1>
+<p>[<a href="/edit/{{.Title}}">Edit</a>]</p>
 
-        <p>[<a href="/edit/{{.Title}}">Edit</a>]</p>
-
-        <div>{{printf "%s" .Body}}</div>
-
-    </body>
-</html>
+<div>{{printf "%s" .Body}}</div>
