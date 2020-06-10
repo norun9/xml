@@ -25,6 +25,10 @@ func loadPage(title string) (*Page , error) {
 	return &Page{Title: title, Body: body}, nil
 }
 
+func viewHandler(w http.ResponseWriter, r *http.Request){
+	
+}
+
 func main() {
 	//p1 := &Page{Title: "test", Body:[]byte("This is a sample page.\t")}
 	//p1.save()
@@ -35,6 +39,6 @@ func main() {
 	server := http.Server{
 		Addr: "127.0.0.1:8080",
 	}
-	
+	http.HandleFunc('/view', viewHandler)
 	server.ListenAndServe()
 }
